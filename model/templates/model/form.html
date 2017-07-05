@@ -1,0 +1,45 @@
+{% extends 'model/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-primary">Predict</button>
+    </form>
+
+    <div class="xxx">
+    </div>
+
+
+    <div class="container-fluid">
+  		<div class="row">
+    		<div class="col-lg-8">
+      			<h2>Indian Cancer Society Dataset of 900 patients</h2>
+    		</div>
+  		</div>
+	</div>
+
+
+    <div class="graphs">
+    	<img src="/static/image/Haemoglobin.jpg" alt="image">
+	</div>
+
+	<div class="graphs">  
+            <img src="/static/image/WBC.jpg" alt="image">
+    </div>
+	
+	<div class="graphs">  
+            <img src="/static/image/Age.jpg" alt="image">
+	</div>
+
+{% endblock %}
+
+
+<!--
+            <img src="{% static "image/Haemoglobin.jpg" %}" alt="image">
+   
+             <img src="{% static "image/WBC.jpg" %}" alt="image">
+   
+             <img src="{% static "image/Age.jpg" %}" alt="image">
+-->
