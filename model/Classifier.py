@@ -6,7 +6,12 @@ import numpy as np
 Classifier = pickle.load(open(os.path.join(settings.PROJECT_ROOT, 'pickle/svm_pickle.p'), "rb" ))
 
 def predict(hgb, wbclab, age, smoking, nonveg, OccupationType):
-	
+
+	age = int(age)
+	smoking = int(smoking)
+	nonveg = int(nonveg)
+	OccupationType = int(OccupationType)
+
 	smoking_1 = 0
 	smoking_3 = 0
 	if smoking==1:
@@ -36,4 +41,4 @@ def predict(hgb, wbclab, age, smoking, nonveg, OccupationType):
 
 	arr = np.array([hgb, wbclab, age, smoking_1,smoking_3, nonveg_0,nonveg_1,nonveg_2, OccupationType_9,OccupationType_10,OccupationType_15])
 	arr = arr.reshape((1,-1))
-	return int(Classifier.predict(arr))
+	return str(int(Classifier.predict(arr)))
